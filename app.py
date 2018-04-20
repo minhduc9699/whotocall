@@ -1,5 +1,10 @@
-from flask import Flask, render_template
+from flask import *
+import mlab
+
 app = Flask(__name__)
+app.secret_key = "sudo"
+mlab.connect()
+
 
 
 @app.route('/')
