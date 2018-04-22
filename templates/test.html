@@ -27,7 +27,7 @@
     <script>
       $(document).ready(function(){
           $("button").click(function(){
-              $.ajax({url: "ajax_info.txt", success: function(result){
+              $.ajax({url: "../static/ajax_info.txt", success: function(result){
                   $("#div1").html(result);
               }});
           });
