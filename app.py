@@ -14,6 +14,7 @@ mlab.connect()
 def index():
     return render_template('index.html')
 
+<<<<<<< HEAD
 @app.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == "GET":
@@ -50,6 +51,15 @@ def log_in():
         else:
             return redirect(url_for('index'))
 
+=======
+@app.route("/ajax")
+def ajax():
+    return render_template("test.html")
+
+@app.route('/tuan')
+def tuan():
+    return render_template('tuan.html')
+>>>>>>> e97e548d9c18be8f032384e47830beedfff8e170
 
 @app.route('/admin', methods=["GET", "POST"])
 def add_name():
