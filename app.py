@@ -14,6 +14,10 @@ mlab.connect()
 def index():
     return render_template('index.html')
 
+@app.route("/ajax")
+def ajax():
+    return render_template("test.html")
+
 @app.route('/tuan')
 def tuan():
     return render_template('tuan.html')
