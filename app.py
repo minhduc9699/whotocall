@@ -14,7 +14,7 @@ mlab.connect()
 def index():
     return render_template('index.html')
 
-<<<<<<< HEAD
+
 @app.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == "GET":
