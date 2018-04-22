@@ -26,7 +26,7 @@ def add_name():
         form = request.form
         new_name = form['name']
         new_audio = gTTS(text=new_name, lang='vi')
-        audio_location = 'E:/work/whotocall/statics/audio/{0}.mp3'.format(new_name)
+        audio_location = 'static/audio/{0}.mp3'.format(new_name)
         new_audio.save(audio_location)
         new_victim = Name(name=new_name, audio=audio_location)
         new_victim.save()
