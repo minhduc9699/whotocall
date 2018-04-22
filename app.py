@@ -51,7 +51,7 @@ def log_in():
         else:
             return redirect(url_for('index'))
 
-=======
+
 @app.route("/ajax")
 def ajax():
     return render_template("test.html")
@@ -59,7 +59,7 @@ def ajax():
 @app.route('/tuan')
 def tuan():
     return render_template('tuan.html')
->>>>>>> e97e548d9c18be8f032384e47830beedfff8e170
+
 
 @app.route('/admin', methods=["GET", "POST"])
 def add_name():
