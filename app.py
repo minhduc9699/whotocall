@@ -14,6 +14,23 @@ mlab.connect()
 def index():
     return render_template('index.html')
 
+@app.route('/random-char')
+def random_char():
+    all_char = Character.objects()
+    list_char = list(all_char)
+    random_char = choice(list_char)
+
+    return render_template('random-char.html', random_char=random_char)
+
+
+@app.route('/random-state')
+def random_state():
+    all_state = State.objects()
+    list_state = list(all_state)
+    random_state = choice(list_state)
+
+    return render_template('random-state.html', random_state=random_state)
+
 
 @app.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
@@ -99,10 +116,10 @@ def add_state():
         form = request.form
         new_state = form['state']
         audio = form['audio']
-        new_audio = gTTS(text=audio, lang='vi')
+        new_audio = gTTS(text="xin mời "+ audio +" lên bảng", lang='vi')
         audio_location = 'static/audio/{0}.mp3'.format(new_state)
         new_audio.save(audio_location)
-        new_state = State(state=new_state, audio=audio_location)
+        new_state = State(state= new_state, audio=audio_location)
         new_state.save()
         return redirect(url_for('add_state'))
 
