@@ -12,7 +12,13 @@ mlab.connect()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    all_char = Character.objects()
+    list_char = list(all_char)
+    random_char = choice(list_char)
+    all_state = State.objects()
+    list_state = list(all_state)
+    random_state = choice(list_state)
+    return render_template('index.html', random_char=random_char, random_state=random_state)
 
 @app.route('/random-char')
 def random_char():
@@ -69,13 +75,13 @@ def log_in():
             return redirect(url_for('index'))
 
 
-@app.route("/ajax")
-def ajax():
-    return render_template("test.html")
+# @app.route("/ajax")
+# def ajax():
+#     return render_template("test.html")
 
-@app.route('/tuan')
-def tuan():
-    return render_template('tuan.html')
+# @app.route('/tuan')
+# def tuan():
+#     return render_template('tuan.html')
 
 
 @app.route('/admin', methods=["GET", "POST"])
@@ -122,6 +128,7 @@ def add_state():
         new_state = State(state= new_state, audio=audio_location)
         new_state.save()
         return redirect(url_for('add_state'))
+
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -10,5 +10,38 @@
     <p> {{random_char.char}} </p>
 
     <audio src="{{random_char.audio}}"autoplay>    </audio>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Who to call </title>
+    {% include 'meta-data.html' %}
+  </head>
+  <body>
+    {% include 'homepage/nav.html' %}
+
+      <div class="w-100 h-100px d-flex justify-content-between" >
+
+        <a  class="bg-success col-5 h-100 d-flex justify-content-center">Option 1</a>
+        <a href="{{url_for('random_state')}}" class="bg-success col-5 h-100 d-flex justify-content-center">Option 2</a>
+
+      </div>
+      <div class="w-100 h-100px d-flex justify-content-between">
+        <div class="col-5 h-100 d-flex justify-content-center border"><p>{{random_char.char}}</p>
+        <audio src="{{random_char.audio}}"  autoplay display: none>
+
+        </audio></div>
+
+        <div class="col-5 h-100 d-flex justify-content-center border">
+
+        </div>
+      </div>
+      <div class="w-100 h-25px d-flex justify-content-between">
+        <div class="col-5 h-100 border d-flex justify-content-end"><a href="{{url_for('random_char')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Find next</a></div>
+        <div class="col-5 h-100 border"></div>
+
+      </div>
   </body>
 </html>
