@@ -7,13 +7,21 @@
   </head>
   <body>
     {% include 'homepage/nav.html' %}
-
-      <div class="w-100 h-100px d-flex justify-content-between" >
-
-        <a href="{{url_for('random_char')}}"  class="bg-success col-5 h-100 d-flex justify-content-center"></a>
-        <a href='{{url_for('random_state')}}' class="bg-success col-5 h-100 d-flex justify-content-center"></a>
-
+    <div class="d-flex justify-content-between">
+      <div class="card" style="width: 18rem;">
+        <a class="bg-dark" href="{{url_for('random_char')}}">Option 1</a>
+        <div class="card-body">
+          <p></p>
+          <a href="{{url_for('random_char')}}" class="btn btn-primary">Find the victim</a>
+        </div>
       </div>
-
+      <div class="card" style="width: 18rem;">
+        <a class="bg-dark" href="{{url_for('random_state')}}">Option 2</a>
+        <div class="card-body">
+          <p></p>
+          <a href="{{url_for('random_state')}}" class="btn btn-primary">Find the victim</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

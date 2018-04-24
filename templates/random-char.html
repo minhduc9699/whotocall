@@ -1,17 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> The one to call </title>
-  </head>
-  <body>
-    <h5> <a href="{{url_for('index')}}"> Homepage </a> </h5>
-    <h1> Đã tìm ra nạn nhân </h1>
-    <p> {{random_char.char}} </p>
-
-    <audio src="{{random_char.audio}}"autoplay>    </audio>
-  </body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -21,27 +7,22 @@
   </head>
   <body>
     {% include 'homepage/nav.html' %}
-
-      <div class="w-100 h-100px d-flex justify-content-between" >
-
-        <a  class="bg-success col-5 h-100 d-flex justify-content-center">Option 1</a>
-        <a href="{{url_for('random_state')}}" class="bg-success col-5 h-100 d-flex justify-content-center">Option 2</a>
-
-      </div>
-      <div class="w-100 h-100px d-flex justify-content-between">
-        <div class="col-5 h-100 d-flex justify-content-center border"><p>{{random_char.char}}</p>
-        <audio src="{{random_char.audio}}"  autoplay display: none>
-
-        </audio></div>
-
-        <div class="col-5 h-100 d-flex justify-content-center border">
-
+    <div class="d-flex justify-content-around">
+      <div class="card" style="width: 18rem;">
+        <a class="bg-dark" href="{{url_for('random_char')}}">Option 1</a>
+        <div class="card-body">
+          <p>{{random_char.char}}</p>
+          <audio src="{{random_char.audio}}" autoplay style="display:none"></audio>
+          <a href="{{url_for('random_char')}}" class="btn btn-primary">Find next</a>
         </div>
       </div>
-      <div class="w-100 h-100px d-flex justify-content-between">
-        <div class="col-5 h-50px  d-flex justify-content-end"><a href="{{url_for('random_char')}}" class="btn btn-primary btn-lg active h-100 text-center text-sm" role="button" aria-pressed="true">Find next</a></div>
-        <div class="col-5 h-50px"></div>
-
+      <div class="card" style="width: 18rem;">
+        <a class="bg-dark" href="{{url_for('random_state')}}">Option 2</a>
+        <div class="card-body">
+          <p></p>
+          <a href="{{url_for('random_state')}}" class="btn btn-primary">Find next</a>
+        </div>
       </div>
+    </div>
   </body>
 </html>
