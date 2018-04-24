@@ -10,15 +10,36 @@ mlab.connect()
 
 
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    all_char = Character.objects()
-    list_char = list(all_char)
-    random_char = choice(list_char)
-    all_state = State.objects()
-    list_state = list(all_state)
-    random_state = choice(list_state)
-    return render_template('index.html', random_char=random_char, random_state=random_state)
+    if request.method == "GET":
+        return render_template('index.html')
+    elif request.method == "POST":
+        form = request.form
+        form_type = form['form-type']
+        if form_type == 'signup':
+            fullname = form['fullname']
+            email = form['email']
+            username = form['username']
+            password = form['password']
+            all_user = User.objects(username=username).first()
+            if all_user == None:
+                new_user = User(fullname=fullname,
+                                email=email,
+                                username=username,
+                                password=password)
+                new_user.save()
+                return redirect(url_for('log_in'))
+            else:
+                return 'Tên đăng nhập đã bị trùng, vui lòng bấm back để nhập lại'
+        elif form_type == 'login':
+            username_input = form['username_input']
+            password_input = form['password_input']
+            account = User.objects(username=username_input, password=password_input).first()
+            if account == None:
+                return redirect(url_for('log_in'))
+            else:
+                return redirect(url_for('index'))
 
 @app.route('/random-char')
 def random_char():
