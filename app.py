@@ -39,6 +39,7 @@ def index():
             if account == None:
                 return redirect(url_for('log_in'))
             else:
+                session['logged_in'] = str(account.id)
                 return redirect(url_for('index'))
 
 @app.route('/random-char')
