@@ -29,3 +29,19 @@
 .font-gaegu {
   font-family: 'Geagu', cursive;
 }
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100'
+.container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.text {
+  font-weight: 100px;
+  font-size: 28px;
+  color: black;
+}
+.dud {
+  color: #757575;
+}
