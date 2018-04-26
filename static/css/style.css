@@ -47,13 +47,3 @@
 .dud {
   color: #757575;
 }
-body {
-   background: #fff;
-   color: 333;
-}
-
-@media all and (max-width: 320px) {
-   body {
-      background: #e7e7e7;
-   }
-}
