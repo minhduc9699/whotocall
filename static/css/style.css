@@ -10,7 +10,9 @@
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
-
+.text-fit {
+  font-size: 20
+}
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     [class*="col-"] {
@@ -56,4 +58,7 @@ body {
    body {
       background: #e7e7e7;
    }
+}
+.h-10{
+  height: 10%;
 }

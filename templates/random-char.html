@@ -6,13 +6,10 @@
     {% include 'meta-data.html' %}
   </head>
   <body>
-    {% include 'homepage/nav.html' %}
-    <div class="d-flex justify-content-between mt-5 pt-5">
-      <div class="card col-md-4" style="width: 18rem;">
-        <a class="" href="{{url_for('random_char')}}">Option 1</a>
-        <div class="card-body">
+    <div class="w-100  mt-5 d-flex justify-content-center " style='height: 20em'>
+      <div class="w-75 h-100 border-dark border-top border-bottom" style="border-width: 10px!important">
           <div class="container">
-            <div class="text">
+            <div class="text text-center" style="margin-top: 5em;">
               <script type="text/javascript">// ——————————————————————————————————————————————————
               // TextScramble
               // ——————————————————————————————————————————————————
@@ -90,19 +87,24 @@
 
               next()
             </script>
+
+
             </div>
+
           </div>
-          <audio style="display:none" onloadeddata="var audioPlayer = this; setTimeout(function(){audioPlayer.play();}, 1500)"> <source src="{{random_char.audio}}" type="audio/mp3"> </audio>
-          <a href="{{url_for('random_char')}}" class="btn btn-primary">Find next</a>
-        </div>
-      </div>
-      <div class="card col-md-4" style="width: 18rem;">
-        <a class="" href="{{url_for('random_state')}}">Option 2</a>
-        <div class="card-body">
-          <p></p>
-          <a href="{{url_for('random_state')}}" class="btn btn-primary">Find</a>
-        </div>
       </div>
     </div>
+    <audio src="{{random_char.audio}}" style="display:none" onloadeddata="var audioPlayer=this; setTimeout(function(){audioPlayer.play();},1500)">
+
+    </audio>
+    <div class="w-100 d-flex justify-content-center pt-2" style="height:5em">
+      <div class="w-75 h-100 d-flex">
+        <a href="{{url_for('random_state')}}" class="w-50  btn btn-primary btn-lg btn-block mt-0 pt-3" role="button">Go to lv2</a>
+        <a href="{{url_for('random_char')}}" class="w-50  btn btn-secondary btn-lg btn-block mt-0 pt-3" role="button">Find Next</a>
+
+      </div>
+    </div>
+
+
   </body>
 </html>
