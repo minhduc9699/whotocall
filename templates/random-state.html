@@ -7,7 +7,7 @@
   </head>
   <body>
     {% include 'homepage/nav.html' %}
-    
+
     <div class="w-100  mt-5 d-flex justify-content-center " style='height: 20em'>
       <div class="w-75 h-100 border-dark border-top border-bottom" style="border-width: 10px!important">
         <div class="container">
@@ -98,8 +98,8 @@
     <audio src="{{random_state.audio}}" style="display:none" onloadeddata="var audioPlayer=this; setTimeout(function(){audioPlayer.play();},1500)"></audio>
     <div class="w-100 d-flex justify-content-center pt-2" style="height:5em">
       <div class="w-75 h-100 d-flex">
-        <a href="{{url_for('random_char')}}" class="w-50  btn btn-primary btn-lg btn-block mt-0 pt-3" role="button">Go back lv1</a>
-        <a href="{{url_for('random_state')}}" class="w-50  btn btn-secondary btn-lg btn-block mt-0 pt-3" role="button">Find Next</a>
+        <a href="{{url_for('random_char')}}" class="w-50  btn btn-secondary btn-lg btn-block mt-0 pt-3" role="button">Go back lv1</a>
+        <a href="{{url_for('random_state')}}" class="w-50  btn btn-primary btn-lg btn-block mt-0 pt-3" role="button">Find Next</a>
 
       </div>
     </div>
