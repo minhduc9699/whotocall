@@ -6,6 +6,8 @@
     {% include 'meta-data.html' %}
   </head>
   <body>
+    {% include 'homepage/nav.html' %}
+
     <div class="w-100  mt-5 d-flex justify-content-center " style='height: 20em'>
       <div class="w-75 h-100 border-dark border-top border-bottom" style="border-width: 10px!important">
           <div class="container">
@@ -99,7 +101,7 @@
     </audio>
     <div class="w-100 d-flex justify-content-center pt-2" style="height:5em">
       <div class="w-75 h-100 d-flex">
-        <a href="{{url_for('random_state')}}" class="w-50  btn btn-primary btn-lg btn-block mt-0 pt-3" role="button">Go to lv2</a>
+        <a href="{{url_for('random_state')}}" class="w-50  btn btn-primary btn-lg btn-block mt-0 pt-3"  role="button">Go to lv2</a>
         <a href="{{url_for('random_char')}}" class="w-50  btn btn-secondary btn-lg btn-block mt-0 pt-3" role="button">Find Next</a>
 
       </div>
