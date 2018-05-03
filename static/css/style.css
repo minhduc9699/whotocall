@@ -13,13 +13,11 @@
 .text-fit {
   font-size: 20
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1080px) {
     /* For mobile phones: */
     [class*="col-"] {
         width: 100%;
     }
-}
-
 }
 .h-100px{
   height: 100px;
