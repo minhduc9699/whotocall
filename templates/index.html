@@ -3,103 +3,105 @@
   <head>
     <meta charset="utf-8">
     <title> Who to call </title>
+
+
     {% include 'meta-data.html' %}
   </head>
   {% include 'homepage/nav.html' %}
-  <body>
+  <body class="bg">
   <div class="w-100  mt-5 d-flex justify-content-center " style='height: 20em'>
-    <div class="w-75 h-100 border-dark border-top border-bottom" style="border-width: 10px!important">
+    <div class="w-75 h-100  border-top border-left border-right border-bottom bg-board" style="border-width: 10px!important; border-color: #762f01!important;">
       <div class="container">
-        <div class="text text-center" style="margin-top: 5em;">
+        <div class="text text-center font-patrick" style="font-size:5vw">
           <script type="text/javascript">
-          // ——————————————————————————————————————————————————
-          // TextScramble
-          // ——————————————————————————————————————————————————
+            // ——————————————————————————————————————————————————
+            // TextScramble
+            // ——————————————————————————————————————————————————
 
-          class TextScramble {
-            constructor(el) {
-              this.el = el
-              this.chars = '!<>-_\\/[]{}—=+*^?#________'
-              this.update = this.update.bind(this)
-            }
-            setText(newText) {
-              const oldText = this.el.innerText
-              const length = Math.max(oldText.length, newText.length)
-              const promise = new Promise((resolve) => this.resolve = resolve)
-              this.queue = []
-              for (let i = 0; i < length; i++) {
-                const from = oldText[i] || ''
-                const to = newText[i] || ''
-                const start = Math.floor(Math.random() * 40)
-                const end = start + Math.floor(Math.random() * 40)
-                this.queue.push({ from, to, start, end })
+            class TextScramble {
+              constructor(el) {
+                this.el = el
+                this.chars = '!<>-_\\/[]{}—=+*^?#________'
+                this.update = this.update.bind(this)
               }
-              cancelAnimationFrame(this.frameRequest)
-              this.frame = 0
-              this.update()
-              return promise
-            }
-            update() {
-              let output = ''
-              let complete = 0
-              for (let i = 0, n = this.queue.length; i < n; i++) {
-                let { from, to, start, end, char } = this.queue[i]
-                if (this.frame >= end) {
-                  complete++
-                  output += to
-                } else if (this.frame >= start) {
-                  if (!char || Math.random() < 0.28) {
-                    char = this.randomChar()
-                    this.queue[i].char = char
+              setText(newText) {
+                const oldText = this.el.innerText
+                const length = Math.max(oldText.length, newText.length)
+                const promise = new Promise((resolve) => this.resolve = resolve)
+                this.queue = []
+                for (let i = 0; i < length; i++) {
+                  const from = oldText[i] || ''
+                  const to = newText[i] || ''
+                  const start = Math.floor(Math.random() * 40)
+                  const end = start + Math.floor(Math.random() * 40)
+                  this.queue.push({ from, to, start, end })
+                }
+                cancelAnimationFrame(this.frameRequest)
+                this.frame = 0
+                this.update()
+                return promise
+              }
+              update() {
+                let output = ''
+                let complete = 0
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                  let { from, to, start, end, char } = this.queue[i]
+                  if (this.frame >= end) {
+                    complete++
+                    output += to
+                  } else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) {
+                      char = this.randomChar()
+                      this.queue[i].char = char
+                    }
+                    output += `<span class="dud">${char}</span>`
+                  } else {
+                    output += from
                   }
-                  output += `<span class="dud">${char}</span>`
+                }
+                this.el.innerHTML = output
+                if (complete === this.queue.length) {
+                  this.resolve()
                 } else {
-                  output += from
+                  this.frameRequest = requestAnimationFrame(this.update)
+                  this.frame++
                 }
               }
-              this.el.innerHTML = output
-              if (complete === this.queue.length) {
-                this.resolve()
-              } else {
-                this.frameRequest = requestAnimationFrame(this.update)
-                this.frame++
+              randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)]
               }
             }
-            randomChar() {
-              return this.chars[Math.floor(Math.random() * this.chars.length)]
-            }
-          }
 
-          // ——————————————————————————————————————————————————
-          // Example
-          // ——————————————————————————————————————————————————
+            // ——————————————————————————————————————————————————
+            // Example
+            // ——————————————————————————————————————————————————
 
-          const phrases = [
-            "Tiết học bắt đầu!!",
-            "Đã đến lúc kiếm tra miệng!!",
-            "Nhưng bạn lại không biết gọi ai :( :( :(",
-            "Bạn đã chán với những cách gọi cổ điển? ?.?",
-            "Hãy để chúng tôi giúp bạn!!",
-            "Chọn một trong 2 level",
-            "Find next cho đến khi tìm đủ số 'nạn nhân'",
-            "Hãy làm giờ kiểm tra miệng thật thú vị nào!!",
+            const phrases = [
+              "Tiết học bắt đầu!!",
+              "Đã đến lúc kiếm tra miệng!!",
+              "Nhưng bạn lại không biết gọi ai :( :( :(",
+              "Bạn đã chán với những cách gọi cổ điển? ?.?",
+              "Hãy để chúng tôi giúp bạn!!",
+              "Chọn một trong 2 level",
+              "Find next cho đến khi tìm đủ số 'nạn nhân'",
+              "Hãy làm giờ kiểm tra miệng thật thú vị nào!!",
 
-          ]
-          const el = document.querySelector('.text')
-          const fx = new TextScramble(el)
+            ]
+            const el = document.querySelector('.text')
+            const fx = new TextScramble(el)
 
-          let counter = 0
-          const next = () => {
-            fx.setText(phrases[counter]).then(() => {
-              setTimeout(next, 1000)
+            let counter = 0
+            const next = () => {
+              fx.setText(phrases[counter]).then(() => {
+                setTimeout(next, 1000)
 
-            })
-            counter = (counter + 1) % phrases.length
+              })
+              counter = (counter + 1) % phrases.length
 
-            }
+              }
 
 
-          next()
+            next()
 
 
           </script>
@@ -109,13 +111,22 @@
         </div>
     </div>
   </div>
-  <div class="w-100 d-flex justify-content-center pt-2" style="height:5em">
-    <div class="w-75 h-100 d-flex">
-      <a href="{{url_for('random_char')}}" class="w-50  btn btn-secondary btn-lg btn-block mt-0 pt-3" role="button"> Tìm nạn nhân cách 1 </a>
-      <a href="{{url_for('random_state')}}" class="w-50  btn btn-primary btn-lg btn-block mt-0 pt-3" role="button"> Tìm nạn nhân cách 2 </a>
+  <div class="w-100 d-flex justify-content-center pt-2 " style="height:5em">
+    <div class="w-75 h-100 row-eq-height">
+      <div class="col-md-6 col-sm-12  ">
+        <a style="background-color:#dddb66;" href="{{url_for('random_char')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Chọn kiểu 1 <i class="far fa-hand-point-right"></i></a>
+      </div>
+      <div class="col-md-6 col-sm-12 ">
+        <a style="background-color:#d83c47;" href="{{url_for('random_state')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Chọn kiểu 2 <i class="far fa-hand-point-right"></i></a>
+      </div>
+
+
+
 
     </div>
   </div>
+
+
 
   </body>
 </html>

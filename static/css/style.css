@@ -44,12 +44,12 @@
 .text {
   font-weight: 100px;
   font-size: 28px;
-  color: black;
+  color: white;
 }
 .dud {
   color: #757575;
 }
-<<<<<<< HEAD
+
 body {
    background: #fff;
    color: 333;
@@ -63,5 +63,40 @@ body {
 .h-10{
   height: 10%;
 }
-=======
->>>>>>> 3e5d5110c9173fd05318050475a35136b9154784
+
+
+.font-patrick{
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+/* .bg {
+  background-image: url('../image/images.jpg');
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+}
+body, html{
+  height: 100%;
+} */
+/* body{
+  background-image: url('../image/ques-mark.png');
+} */
+.bg-board{
+  background-color: #2c5545;
+}
+.bg{
+  background-image: url('http://kevingreenwired.com/wp-content/uploads/2015/09/question.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-yellow{
+  background-color: #ede910;
+}
+.bg-red{
+  background-color: red;
+}
