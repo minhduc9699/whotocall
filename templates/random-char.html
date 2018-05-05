@@ -3,12 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title> Who to call </title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
     {% include 'meta-data.html' %}
+    <style>
+      a:hover {
+        color: #fff;
+      }
+    </style>
   </head>
-  <body style="background-color: #cec379">
-    {% include 'homepage/nav.html' %}
+  <!-- <body style="background-color: #cec379"> -->
+<body style="background-color:#cec6c6">
 
-    <div class="w-100  mt-5 d-flex justify-content-center " style='height: 20em'>
+    <div class="w-100 d-flex justify-content-center " style='height: 20em; margin-top:5em;'>
       <div class="w-75 h-100  border-top border-left border-right border-bottom bg-board" style="border-width: 10px!important; border-color: #762f01!important;">
           <div class="container">
             <div class="text text-center font-patrick" style="font-size:5vw">
@@ -102,10 +108,10 @@
     <div class="w-100 d-flex justify-content-center pt-2 " style="height:5em">
       <div class="w-75 h-100 row-eq-height">
         <div class="col-md-6 col-sm-12  ">
-          <a style="background-color:#d83c47" href="{{url_for('random_state')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Chọn kiểu 2 <i class="far fa-hand-point-right"></i></a>
+          <a style="background-color:#d83c47" href="{{url_for('random_state')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Bá Đạo <i class="far fa-hand-point-right"></i></a>
         </div>
         <div class="col-md-6 col-sm-12 ">
-          <a style="background-color:#dddb66;" href="{{url_for('random_char')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Tìm tiếp <i class="far fa-hand-point-right"></i></a>
+          <a style="background-color:#18b24d;" href="{{url_for('random_char')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Tìm tiếp <i class="far fa-hand-point-right"></i></a>
         </div>
 
 
