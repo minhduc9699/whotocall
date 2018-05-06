@@ -44,19 +44,31 @@ def index():
 
 @app.route('/random-char')
 def random_char():
-    all_char = Character.objects()
-    list_char = list(all_char)
-    random_char = choice(list_char)
-
+    if 'char' not in session:
+        all_char = Character.objects()
+        list_char = list(all_char)
+        random_char = choice(list_char)
+        session['char'] = str(random_char.id)
+    else:
+        all_char = Character.objects(id__ne=session['char'])
+        list_char = list(all_char)
+        random_char = choice(list_char)
+        session['char'] = str(random_char.id)
     return render_template('random-char.html', random_char=random_char)
 
 
 @app.route('/random-state')
 def random_state():
-    all_state = State.objects()
-    list_state = list(all_state)
-    random_state = choice(list_state)
-
+    if 'state' not in session:
+        all_state = State.objects()
+        list_state = list(all_state)
+        random_state = choice(list_state)
+        session['state'] = str(random_state.id)
+    else:
+        all_state = State.objects(id__ne=session['state'])
+        list_state = list(all_state)
+        random_state = choice(list_state)
+        session['state'] = str(random_state.id)
     return render_template('random-state.html', random_state=random_state)
 
 
