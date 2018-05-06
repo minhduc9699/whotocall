@@ -55,11 +55,20 @@ body {
    color: 333;
 }
 
-@media all and (max-width: 320px) {
-   body {
-      background: #e7e7e7;
+@media all and (max-width: 480px) {
+   .text-mobile {
+      font-size: 10vw;
+      padding-top: 40%;
+   }
+   .text-mobile-home{
+     font-size: 15vw;
    }
 }
+@media all and (max-width: 320px) {
+  .ip5{
+    margin: 0px 10px;
+  }
+  }
 .h-10{
   height: 10%;
 }
@@ -99,4 +108,13 @@ body, html{
 }
 .bg-red{
   background-color: red;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }

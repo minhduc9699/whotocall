@@ -15,10 +15,11 @@
 
   <body style="background-color:#cec6c6">
 
+<div>
   <div class="w-100 d-flex justify-content-center " style='height: 20em; margin-top:5em;'>
     <div class="w-75 h-100  border-top border-left border-right border-bottom bg-board" style="border-width: 10px!important; border-color: #762f01!important;">
       <div class="container">
-        <div class="text text-center font-patrick" style="font-size:5vw">
+        <div class="text text-center font-patrick text-mobile" style="font-size:5vw">
           <script type="text/javascript">
             // ——————————————————————————————————————————————————
             // TextScramble
@@ -83,14 +84,10 @@
             // ——————————————————————————————————————————————————
 
             const phrases = [
-              "Tiết học bắt đầu!!",
               "Đã đến lúc kiếm tra miệng!!",
               "Nhưng bạn lại không biết gọi ai :( :( :(",
-              "Bạn đã chán với những cách gọi cổ điển? ?.?",
+              'Bạn đã chán với những cách gọi "cổ điển"? ?.?',
               "Hãy để chúng tôi giúp bạn!!",
-              "Chọn một trong 2 level",
-              "Find next cho đến khi tìm đủ số 'nạn nhân'",
-              "Hãy làm giờ kiểm tra miệng thật thú vị nào!!",
 
             ]
             const el = document.querySelector('.text')
@@ -125,7 +122,7 @@
       <div class="col-md-6 col-sm-12 " style="height:70px!important">
         <a style="background-color:#d83c47;  font-size: 16px" href="{{url_for('random_state')}}" class="waves-effect waves-light btn w-100 h-100 py-1 font-patrick font-weight-bold">Bá Đạo <i class="far fa-hand-point-right"></i></a>
       </div>
-
+</div>
 
 
 
@@ -133,6 +130,11 @@
   </div>
 
 
+  <footer class ='footer d-flex justify-content-center'>
+
+    <h5 class="text-center text-light container font-gaegu align-items-center" style="font-size: 3vh">Được thực hiện bởi C4E16-Techkids</h5>
+
+  </footer>
 
   </body>
 </html>
