@@ -12,35 +12,7 @@ mlab.connect()
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    if request.method == "GET":
-        return render_template('index.html')
-    elif request.method == "POST":
-        form = request.form
-        form_type = form['form-type']
-        if form_type == 'signup':
-            fullname = form['fullname']
-            email = form['email']
-            username = form['username']
-            password = form['password']
-            all_user = User.objects(username=username).first()
-            if all_user == None:
-                new_user = User(fullname=fullname,
-                                email=email,
-                                username=username,
-                                password=password)
-                new_user.save()
-                return redirect(url_for('log_in'))
-            else:
-                return 'Tên đăng nhập đã bị trùng, vui lòng bấm back để nhập lại'
-        elif form_type == 'login':
-            username_input = form['username_input']
-            password_input = form['password_input']
-            account = User.objects(username=username_input, password=password_input).first()
-            if account == None:
-                return redirect(url_for('log_in'))
-            else:
-                session['logged_in'] = str(account.id)
-                return redirect(url_for('index'))
+    return render_template('index.html')
 
 @app.route('/random-char')
 def random_char():
@@ -56,8 +28,6 @@ def random_char():
         session['char'] = str(random_char.id)
     return render_template('random-char.html', random_char=random_char)
 
-
-
 @app.route('/random-state')
 def random_state():
     if 'state' not in session:
@@ -71,9 +41,6 @@ def random_state():
         random_state = choice(list_state)
         session['state'] = str(random_state.id)
     return render_template('random-state.html', random_state=random_state)
-
-
-
 
 @app.route("/add-char", methods=["GET", "POST"])
 def add_char():
@@ -104,8 +71,6 @@ def add_state():
         new_state = State(state= new_state, audio=audio_location)
         new_state.save()
         return redirect(url_for('add_state'))
-
-
 
 if __name__ == '__main__':
   app.run(debug=True)
